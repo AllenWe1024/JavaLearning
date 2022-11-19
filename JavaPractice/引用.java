@@ -5,5 +5,6 @@ public class 引用 {
         s = "world";
         System.out.println(t); // t是"hello"还是"world"?
         System.out.println("test_local");
-    }
+        System.out.println("test_local2");
+        }
 }
