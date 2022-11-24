@@ -11,6 +11,7 @@ class Outer {
 
     Outer(String name) {
         this.name = name;
+
     }
 
     class Inner {
