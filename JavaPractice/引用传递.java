@@ -1,6 +1,6 @@
 public class 引用传递 {
     public static void main(String[] args) {
-        Person123123 p = new Person123123();
+        Person12312311 p = new Person12312311();
         String[] fullname = new String[] { "Homer", "Simpson" };
         p.setName(fullname); // 传入fullname数组
         System.out.println(p.getName()); // "Homer Simpson"
@@ -9,7 +9,7 @@ public class 引用传递 {
     }
 }
 
-class Person {
+class Person12312311 {
     private String[] name;
 
     public String getName() {
