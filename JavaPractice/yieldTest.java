@@ -1,3 +1,4 @@
+/*
 public class yieldTest {
     public static void main(String[] args) {
         String fruit = "orange";
@@ -11,4 +12,4 @@ public class yieldTest {
         };
         System.out.println("opt = " + opt);
     }
-}
+}*/
