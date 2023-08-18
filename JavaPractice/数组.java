@@ -1,3 +1,4 @@
+/*
 public class 数组 {
     public static void main(String[] args) {
         int[] x, y[];
@@ -14,4 +15,4 @@ public class 数组 {
         // f)
         x = y; // no
     }
-}
+}*/
