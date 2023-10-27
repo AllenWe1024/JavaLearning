@@ -8,4 +8,5 @@ public class Variable {
         int i = 0;  // 局部变量
 
     }
+
 }

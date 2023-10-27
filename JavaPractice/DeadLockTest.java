@@ -8,7 +8,9 @@ public class DeadLockTest {
             public void run() {
                 synchronized (s1) {
                     s1.append("a");
-                    s2.append("1");
+                    // s2.append("1");
+                    System.out.println("1:" + s1);
+                    System.out.println("2:" + s2);
 
                     try {
                         Thread.sleep(10);
@@ -17,11 +19,11 @@ public class DeadLockTest {
                     }
 
                     synchronized (s2) {
-                        s1.append("b");
+                        // s1.append("b");
                         s2.append("2");
 
-                        System.out.println(s1);
-                        System.out.println(s2);
+                        System.out.println("3:" + s1);
+                        System.out.println("4:" + s2);
 
                     }
                 }
@@ -31,9 +33,10 @@ public class DeadLockTest {
         new Thread() {
             public void run() {
                 synchronized (s2) {
-                    s1.append("c");
+                    // s1.append("c");
                     s2.append("3");
-
+                    System.out.println("5:" + s1);
+                    System.out.println("6:" + s2);
                     try {
                         Thread.sleep(10);
                     } catch (InterruptedException e) {
@@ -42,10 +45,10 @@ public class DeadLockTest {
 
                     synchronized (s1) {
                         s1.append("d");
-                        s2.append("4");
+                        // s2.append("4");
 
-                        System.out.println(s1);
-                        System.out.println(s2);
+                        System.out.println("7:" + s1);
+                        System.out.println("8:" + s2);
 
                     }
 
