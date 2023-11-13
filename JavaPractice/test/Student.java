@@ -1,6 +1,6 @@
 package test;
 
-public class Student implements Comparable {
+public class Student {
     private int id;
     private String name;
     private int score;
@@ -55,11 +55,12 @@ public class Student implements Comparable {
                 '}';
     }
 
-    @Override
-    public int compareTo(Object o) {
-        //这些需要强制，将o对象向下转型为Student类型的变量，才能调用Student类中的属性
-        //默认按照学号比较大小
-        Student stu = (Student) o;
-        return this.id - stu.id; // o.id - stu.id
-    }
+    // @Override
+    // public int compareTo(Object o) {
+    //     //这些需要强制，将o对象向下转型为Student类型的变量，才能调用Student类中的属性
+    //     //默认按照学号比较大小
+    //     Student stu = (Student) o;
+    //     return this.id - stu.id; // o.id - stu.id
+    // }
 }
+
