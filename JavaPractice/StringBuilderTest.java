@@ -1,5 +1,7 @@
 // import org.testng.annotations.Test;
 
+import org.junit.Test;
+
 public class StringBuilderTest {
     @Test
     public void test1() {
