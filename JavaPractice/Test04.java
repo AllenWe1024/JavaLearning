@@ -1,63 +1,110 @@
-//package com.atguigu05.field.interview;
+import java.util.HashSet;
+
+public class Test04 {
+
+    public static void main(String[] args) {
+        HashSet set = new HashSet();
+        Person p1 = new Person(1001, "AA");
+        Person p2 = new Person(1002, "BB");
+
+        set.add(p1);
+        set.add(p2);
+        System.out.println("0:");
+        System.out.println(set);
+
+        p1.name = "CC";
+        set.remove(p1); // 此时已修改
+        System.out.println("1:");
+        System.out.println(set);
+        set.add(new Person(1001, "CC"));
+
+        System.out.println("2:");
+        System.out.println(set);
+
+        set.add(new Person(1001, "AA"));
+
+        System.out.println("3:");
+        System.out.println(set);
+
+        // 其中Person类中重写了hashCode()和equal()方法
+
+        HashSet<Integer> set2 = new HashSet();
+        set2.add(1);
+        set2.add(2);
+        set2.add(3);
+        System.out.println("a" + set2);
+
+        set2.remove(2);
+        System.out.println("b" + set2);
+
+    }
+}
 
 /**
- * @author 尚硅谷-宋红康
- * @create 16:04
+ * Person
  */
-public class Test04 {
-    public static void main(String[] args) {
-        Zi zi = new Zi();
-    }
-}
+class Person {
 
-class Fu {
-    private static int i = getNum("（1）i");
-    private int j = getNum("（2）j");
+    public int id;
+    public String name;
 
-    static {
-        print("（3）父类静态代码块");
+    public Person(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    {
-        print("（4）父类非静态代码块，又称为构造代码块");
+    public int getId() {
+        return id;
     }
 
-    Fu() {
-        print("（5）父类构造器");
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public static void print(String str) {
-        System.out.println(str + "->" + i);
+    public String getName() {
+        return name;
     }
 
-    public static int getNum(String str) {
-        print(str);
-        return ++i;
-    }
-}
-
-class Zi extends Fu {
-    private static int k = getNum("（6）k");
-    private int h = getNum("（7）h");
-
-    static {
-        print("（8）子类静态代码块");
+    public void setName(String name) {
+        this.name = name;
     }
 
-    {
-        print("（9）子类非静态代码块，又称为构造代码块");
+    public void setName(int id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
-    Zi() {
-        print("（10）子类构造器");
+    @Override
+    public String toString() {
+        return "Person [id=" + id + ", name=" + name + "]";
     }
 
-    public static void print(String str) {
-        System.out.println(str + "->" + k);
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + id;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        return result;
     }
 
-    public static int getNum(String str) {
-        print(str);
-        return ++k;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Person other = (Person) obj;
+        if (id != other.id)
+            return false;
+        if (name == null) {
+            if (other.name != null)
+                return false;
+        } else if (!name.equals(other.name))
+            return false;
+        return true;
     }
+
 }
