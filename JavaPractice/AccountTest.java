@@ -33,11 +33,11 @@ class Account {
     }
 }
 
-class User extends Thread {
+class userTest extends Thread {
     private Account account;
 
     // 有参构造器
-    public User(Account account) {
+    public userTest(Account account) {
         this.account = account;
     }
 
@@ -54,8 +54,8 @@ public class AccountTest {
     public static void main(String[] args) {
         Account acc = new Account(0);
         // 创建两个User对象 （两个线程）
-        User u1 = new User(acc);
-        User u2 = new User(acc);
+        userTest u1 = new userTest(acc);
+        userTest u2 = new userTest(acc);
         // 为两个对象（线程）命名
         u1.setName("甲");
         u2.setName("乙");
